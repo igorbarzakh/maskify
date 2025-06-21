@@ -4,9 +4,10 @@ import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 
 export default defineConfig({
-  root: 'demo',
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic',
+    }),
     dts({
       insertTypesEntry: true,
       rollupTypes: true,
@@ -16,19 +17,28 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        masks: resolve(__dirname, 'src/masks/index.ts'),
       },
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
+          'react/jsx-dev-runtime': 'jsxDevRuntime',
         },
+        banner: '',
+        footer: '',
       },
     },
-    sourcemap: true,
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: false,
+      },
+    },
+    sourcemap: false,
   },
 });
