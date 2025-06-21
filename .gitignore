@@ -3,9 +3,11 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-store
 
 # Build outputs
 dist/
+dist-demo
 build/
 *.tsbuildinfo
 
@@ -48,4 +50,7 @@ storybook-static/
 
 # Temporary folders
 tmp/
-temp/ 
+temp/
+
+# New additions from the code block
+pnpm-debug.log* 

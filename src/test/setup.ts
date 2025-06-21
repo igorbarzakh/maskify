@@ -3,9 +3,13 @@ import { vi } from 'vitest';
 
 // Mock MutationObserver for tests
 global.MutationObserver = class {
-  constructor(callback: MutationCallback) {}
+  constructor(_callback: MutationCallback) {
+    // Mock constructor - callback not used in tests
+  }
   disconnect() {}
-  observe(element: Node, init?: MutationObserverInit) {}
+  observe(_element: Node, _init?: MutationObserverInit) {
+    // Mock observe - parameters not used in tests
+  }
   takeRecords(): MutationRecord[] {
     return [];
   }

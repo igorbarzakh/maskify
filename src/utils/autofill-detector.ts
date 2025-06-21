@@ -50,7 +50,8 @@ export class AutofillDetector {
         attributes: true,
         attributeFilter: ['value'],
       });
-    } catch (error) {
+    } catch (_error) {
+      // Ignore MutationObserver errors and fall back to polling
       console.warn('MutationObserver not supported, falling back to polling');
     }
   }

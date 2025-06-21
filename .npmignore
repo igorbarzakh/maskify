@@ -1,0 +1,44 @@
+# Source files
+src/
+demo/
+
+# Build outputs (except dist)
+dist-demo/
+coverage/
+
+# Development files
+.github/
+.vscode/
+*.log
+*.tsbuildinfo
+
+# Config files
+vite.lib.config.ts
+vite.demo.config.ts
+vitest.config.ts
+eslint.config.js
+tsconfig.json
+.npmrc
+pnpm-workspace.yaml
+pnpm-lock.yaml
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+test/
+
+# Documentation
+INSTALLATION.md
+CHANGELOG.md
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db 

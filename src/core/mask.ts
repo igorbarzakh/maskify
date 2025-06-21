@@ -1,17 +1,17 @@
 export function formatValue(value: string, mask: string): string {
-  // 1. Получаем "чистые" цифры из пользовательского ввода.
+  // 1. Extract "clean" digits from user input
   const cleanValue = value.replace(/\D/g, '');
 
-  // 2. Получаем "чистые" цифры из самой маски.
+  // 2. Extract "clean" digits from the mask itself
   const maskDigits = mask.replace(/\D/g, '');
 
-  // 3. Убираем из пользовательского ввода цифры, которые являются частью маски.
+  // 3. Remove from user input digits that are part of the mask
   let valueWithoutMaskDigits = cleanValue;
   if (valueWithoutMaskDigits.startsWith(maskDigits)) {
     valueWithoutMaskDigits = valueWithoutMaskDigits.slice(maskDigits.length);
   }
 
-  // 4. Применяем маску.
+  // 4. Apply the mask
   let result = '';
   let valueIndex = 0;
   for (let i = 0; i < mask.length && valueIndex < valueWithoutMaskDigits.length; i++) {

@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { InputMask } from './InputMask';
 
-// Мок для DataTransfer
+// Mock for DataTransfer
 class DataTransferMock {
   private data: Record<string, string> = {};
   setData(type: string, value: string) {
@@ -13,10 +13,10 @@ class DataTransferMock {
     return this.data[type] || '';
   }
 }
-// @ts-ignore
+// @ts-expect-error - Adding DataTransfer to global for testing
 global.DataTransfer = DataTransferMock;
 
-// Компонент-обертка для тестирования
+// Wrapper component for testing
 const TestWrapper = ({ mask, onComplete }: { mask: string; onComplete?: (v: string) => void }) => {
   const [value, setValue] = useState('');
   return (
